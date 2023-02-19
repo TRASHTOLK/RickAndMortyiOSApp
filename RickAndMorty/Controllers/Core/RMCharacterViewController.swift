@@ -12,6 +12,11 @@ class RMCharacterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let result = RMRequest.init(endpoint: .character,
+                                    queryParameters: [URLQueryItem(name: "name", value: "rick")
+                                                     ,URLQueryItem(name: "status", value: "")])
+        
 
         
     }
