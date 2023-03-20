@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct RMCharacter {
+struct RMCharacter: Codable {
     let id: Int
     let name: String
-    let status: String
+    let status: RMCharacterStatus
     let species: String
     let type: String
-    let gender: String
+    let gender: RMCaracterGender
     let origin: RMCharacterOrigin
     let location: RMCaracterLocation
     let image: String

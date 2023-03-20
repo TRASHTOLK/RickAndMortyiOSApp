@@ -12,5 +12,4 @@ import Foundation
     case character
     case location
     case episode
-    
 }

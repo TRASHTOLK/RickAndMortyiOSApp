@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct RMLocation {
+struct RMLocation: Codable {
+    let id: Int
     let name: String
     let type: String
     let dimension: String
@@ -16,6 +17,6 @@ struct RMLocation {
     let created: String
 }
 
-
-
-
+struct Root: Decodable {
+    let results: [RMLocation]
+}
