@@ -70,7 +70,6 @@ final class RMCharacterListViewViewModel: NSObject {
             return
         }
         isLoadingMoreCharacters = true
-        print("Fetching additional characters")
         guard let request = RMRequest(url: url) else {
             isLoadingMoreCharacters = false
             print("Failed to creater request")
@@ -181,7 +180,7 @@ extension RMCharacterListViewViewModel: UIScrollViewDelegate {
             return
         }
         
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { [weak self] t in
+        Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false) { [weak self] t in
             
             let offset = scrollView.contentOffset.y
             let totalHeight = scrollView.contentSize.height

@@ -21,7 +21,6 @@ final class RMRequest {
     
     private var urlString: String {
         var urlString = Constants.baseUrl + endpoint.rawValue
-        print(urlString)
         
         if !pathComponents.isEmpty {
             pathComponents.forEach {
@@ -62,16 +61,19 @@ final class RMRequest {
     
     convenience init?(url: URL) {
         let string = url.absoluteString
+        
         if !string.contains(Constants.baseUrl) {
+            print("FAILED")
             return nil
         }
         let trimmed = string.replacingOccurrences(of: Constants.baseUrl, with: "")
         if trimmed.contains("/") {
-            let components = trimmed.components(separatedBy: "/")
+            var components = trimmed.components(separatedBy: "/")
             if !components.isEmpty {
                 let endpointString = components[0]
+                components.removeFirst()
                 if let rmEndpoint = RMEnpoint(rawValue: endpointString) {
-                    self.init(endpoint: rmEndpoint)
+                    self.init(endpoint: rmEndpoint, pathComponents: components)
                     return
                 }
             }
